@@ -10,10 +10,10 @@
  * This source code is licensed under the MIT License. For more details, see
  * the LICENSE file in the root directory of this project.
  *
- * Version: v1.0.0
+ * Version: v1.0.1
  * Author: Ghost
  * Created On: 02-17-2025
- * Last Modified: 02-17-2025
+ * Last Modified: 02-21-2025
  *****************************************************************************/
 
 #include <random>
@@ -43,7 +43,7 @@ void baker(int id) {
 
     for (int i = 0; i < piesPerBaker; i++)
     {
-        int workTime = getRandomWorkTime();
+        int workTime = 0; // FIX - moved function call to protected lock below
 
         { // NEW - scope for lock_guard
             /* Inner Scope Explained
@@ -75,6 +75,7 @@ void baker(int id) {
                 The destructor calls mtx.unlock().
 
             */
+           workTime = getRandomWorkTime(); // FIX - static variables in functions must be thread protected since they are global
             std::cout << "...Baker " << id << " is making pie #" << (piesBaked + 1) << std::endl;
             piesBaked++;
         }

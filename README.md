@@ -10,6 +10,9 @@ It simulates **8 bakers (threads) working together** to bake **20 pies** as fast
 
 This project is part of a **YouTube tutorial** explaining C++ multithreading concepts.
 
+**Important Notice**
+Mistakes happen! Make sure to view the changelog and for any additional commits after the initial - these are changes to this tutorial that are not shown in the YouTube tutorial!
+
 ---
 
 ## 📂 Project Structure
